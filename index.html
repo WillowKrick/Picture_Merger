@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/inde.css">
+</head>
+
+<body>
+  <div id="guide">
+    <h2>图片拼接器</h2>
+    <li>目前仅实现了拖拽文件处理,所有数据不会经过服务器</li>
+    <li>将多个文件拖入,或者将整个文件夹拖入中间的框即可开始拼接图片</li>
+    <li>将以文件夹名称命名,每个文件夹拼接为一张,多文件为png.png</li>
+    <li>支持:<strong>单文件夹||多文件夹||多文件</strong> </li>
+  </div>
+  <div id="contain">
+    <label id="fileArea" for="fileInput">选择文件夹</label>
+    <input style="display: none;" id="fileInput" type="file" multiple webkitdirectory directory>
+  </div>
+
+  <script src="./js/tools.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

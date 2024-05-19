@@ -1,0 +1,66 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: #fed;
+}
+#app{
+width: 100%;
+	height: 100%;
+}
+#contain {
+	position: relative;
+	transform: translateX(-50%) translateY(-50%);
+	left: 50%;
+	top: 60%;
+	width: 360px;
+	height: 360px;
+}
+
+img {
+	width: 220px;
+	height: auto;
+	margin: 15px;
+}
+
+label {
+	display: block;
+	position: relative;
+	transform: translateX(-50%) translateY(-50%);
+	left: 50%;
+	top: 50%;
+	display: block;
+	box-sizing: border-box;
+	height: 200px;
+	width: 200px;
+	border-radius: 10%;
+	font-size: larger;
+	line-height: 200px;
+	font-weight: bold;
+	color: darkblue;
+	text-align: center;
+	border: 1px skyblue dashed;
+	background-color: #edc;
+}
+
+#guide {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding: 20px 20px 10px 30px;
+	background-color: #dcb;
+}
+
+#guide h2 {
+	text-align: center;
+}
+
+li {
+	margin: 6px 0 6px 0;
+}
