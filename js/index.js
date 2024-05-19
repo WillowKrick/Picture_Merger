@@ -37,7 +37,7 @@ function drop(e) {
 
 	Promise.all(promises)
 		.then(async () => {
-			console.log(fileQueue);
+			console.log("files loaded");
 			for (let [k, v] of fileQueue) {
 				let kvus = document.createElement("canvas");
 				let ctx = kvus.getContext("2d");
