@@ -52,6 +52,7 @@ function drop(e) {
 				link.remove();
 				v.forEach((blobUrl) => URL.revokeObjectURL(blobUrl));
 				ctx.clearRect(0, 0, kvus.width, kvus.height);
+				fileQueue.delete(k);
 			}
 		})
 		.catch((error) => {
