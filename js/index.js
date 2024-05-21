@@ -41,9 +41,10 @@ function drop(e) {
 			for (let [k, v] of fileQueue) {
 				let kvus = document.createElement("canvas");
 				let ctx = kvus.getContext("2d");
-				kvusHeight = await calculateTotalHeight(v);
-				kvus.height = kvusHeight;
-				kvus.width = 800;
+				let widthHeight = await calculateTotalHeight(v);
+
+				kvus.height = widthHeight.totalHeight;
+				kvus.width = widthHeight.width;
 				await drawImagesAsync(v, ctx);
 				let link = document.createElement("a");
 				link.download = k + ".png";
@@ -96,9 +97,12 @@ function traverseFileTree(item, fileQueue, path = "") {
 
 async function calculateTotalHeight(imageSources) {
 	try {
-		const heights = await Promise.all(imageSources.map((src) => loadImage(src)));
+		const heights = await Promise.all(
+			imageSources.map(async (src) => (await loadImage(src)).height)
+		);
+		let picWidth = (await loadImage(imageSources[0])).width;
 		const totalHeight = heights.reduce((sum, height) => sum + height, 0);
-		return totalHeight;
+		return { totalHeight: totalHeight, width: picWidth };
 	} catch (error) {
 		console.error("Error loading images", error);
 	}
@@ -112,7 +116,6 @@ async function drawImagesAsync(images, ctx) {
 		await new Promise((resolve, reject) => {
 			img.onload = () => {
 				ctx.drawImage(img, 0, currentY, img.width, img.height);
-				// console.log(img.width, "+", img.height);
 				currentY += img.height;
 				resolve();
 			};
@@ -124,7 +127,7 @@ async function drawImagesAsync(images, ctx) {
 function loadImage(src) {
 	return new Promise((resolve, reject) => {
 		const img = new Image();
-		img.onload = () => resolve(img.height);
+		img.onload = () => resolve({ height: img.height, width: img.width });
 		img.onerror = reject;
 		img.src = src;
 	});
