@@ -36,11 +36,11 @@ label {
 	top: 50%;
 	display: block;
 	box-sizing: border-box;
-	height: 200px;
-	width: 200px;
+	height: 500px;
+	width: 500px;
 	border-radius: 10%;
 	font-size: larger;
-	line-height: 200px;
+	line-height: 500px;
 	font-weight: bold;
 	color: darkblue;
 	text-align: center;
