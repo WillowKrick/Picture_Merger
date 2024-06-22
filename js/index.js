@@ -48,7 +48,7 @@ function drop(e) {
 				await drawImagesAsync(v, ctx);
 				let link = document.createElement("a");
 				link.download = k;
-				link.href = kvus.toDataURL("image/jpeg", 0.92);
+				link.href = kvus.toDataURL("image/jpeg", 1);
 				link.click();
 				link.remove();
 				v.forEach((blobUrl) => URL.revokeObjectURL(blobUrl));
